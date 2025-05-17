@@ -1,0 +1,20 @@
+PYTHON = python3
+TARGET = example3.py
+BASHVENV = sarvar_venv
+VENV_PYTHON = $(BASHVENV)/bin/python
+VENV_PIP = $(BASHVENV)/bin/pip
+
+# Create a virtual environment
+venv_creator:
+	$(PYTHON) -m venv $(BASHVENV)
+	#$(VENV_PIP) install --upgrade pip
+
+# Install dependencies (no need for activation)
+install: venv_creator
+	$(VENV_PIP) install -r requirement.txt
+
+
+
+# Clean cache and virtual environment
+clean:
+	rm -rf __pycache__ $(BASHVENV)

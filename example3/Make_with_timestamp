@@ -1,0 +1,25 @@
+PYTHON = python3
+
+
+# Create a virtual environment
+
+
+# Generate raw data file **only if data.txt is missing or outdated**
+data.txt: generate.py
+	$(PYTHON) generate.py
+
+# Process raw data **only if processed.txt is missing or outdated**
+Processed.txt: process.py data.txt
+	$(PYTHON) process.py
+
+# Summarize processed data **only if summary.txt is missing or outdated**
+summary.txt: summary.py Processed.txt
+	$(PYTHON) summary.py
+
+# Run everything sequentially
+run: summary.txt
+
+# Clean generated files
+clean:
+	rm -f data.txt Processed.txt summary.txt
+

@@ -1,0 +1,16 @@
+# Python Interpreter
+PYTHON = python3
+
+# Target Script
+TARGET = main.py
+
+# Run the Python Program
+run:
+	    $(PYTHON) $(TARGET)
+
+
+
+# Remove Python Bytecode and Cache Files
+clean:
+	    rm -rf __pycache__
+
