@@ -1,4 +1,0 @@
-another2.txt
-another3.txt
-out1.txt
-test.sh
